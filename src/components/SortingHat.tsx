@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Wand2, Quote, Sparkles, X } from 'lucide-react';
+import { Wand2, Sparkles, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase, House } from '../lib/supabase';
 
@@ -160,10 +160,10 @@ export default function SortingHat() {
             </div>
             
             <div className="space-y-6">
-              <h2 className="text-6xl md:text-7xl font-bold text-white tracking-widest uppercase magical-glow">
+              <h2 className="text-6xl md:text-7xl font-bold text-white tracking-widest uppercase magical-glow brightness-125">
                 Sorting Ceremony
               </h2>
-              <p className="text-xl text-white/60 font-light leading-relaxed tracking-wide max-w-2xl mx-auto">
+              <p className="text-xl text-white font-light leading-relaxed tracking-wide max-w-2xl mx-auto opacity-100 drop-shadow-lg">
                 Step into the ancient ritual. Let the Sorting Hat gaze into your spirit and reveal the house where your true tech potential lies.
               </p>
             </div>
@@ -215,7 +215,7 @@ export default function SortingHat() {
             <div className="relative w-[85%] max-w-5xl h-[70vh] border border-white/10 shadow-[0_0_100px_rgba(255,255,255,0.05)] overflow-hidden bg-black/40 backdrop-blur-md">
               <video
                 ref={videoRef}
-                className="w-full h-full object-contain grayscale opacity-60"
+                className="w-full h-full object-cover object-center grayscale opacity-60"
                 onEnded={handleVideoEnd}
                 playsInline
               >

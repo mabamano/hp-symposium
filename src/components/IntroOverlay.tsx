@@ -18,18 +18,31 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
     // Asset Preloading Logic
     const preloadAssets = async () => {
       const assets = [
+        // Intro Assets
         { type: 'image', src: '/intro/letter.png' },
-        { type: 'video', src: '/intro/Owl_flying.mp4' }
+        { type: 'video', src: '/intro/Owl_flying.mp4' },
+        // Platform Core Assets
+        { type: 'image', src: '/images/events/Ramco-logo.png' },
+        { type: 'image', src: '/images/events/hogwarts-bg.webp' },
+        { type: 'image', src: '/images/events/contact-bg.webp' },
+        { type: 'image', src: '/houses/Gryffindor.png' },
+        { type: 'image', src: '/houses/Slytherin.png' },
+        { type: 'image', src: '/houses/Ravenclaw.png' },
+        { type: 'image', src: '/houses/Hufflepuff.png' },
+        // Video Backgrounds
+        { type: 'video', src: '/home_video/title.mp4' },
+        { type: 'video', src: '/home_video/title_mobile.mp4' },
+        { type: 'video', src: '/hat.mp4' },
+        { type: 'video', src: '/bg_music/hp.mp4' }
       ];
 
       let loadedCount = 0;
 
       const updateProgress = () => {
         loadedCount++;
-        setLoadProgress((loadedCount / assets.length) * 100);
+        setLoadProgress(Math.floor((loadedCount / assets.length) * 100));
         if (loadedCount === assets.length) {
-          // Small delay for smooth transition from loading UI
-          setTimeout(() => setScene('letter'), 800);
+          setTimeout(() => setScene('letter'), 1500);
         }
       };
 
@@ -38,10 +51,11 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
           const img = new Image();
           img.src = asset.src;
           img.onload = updateProgress;
-          img.onerror = updateProgress; // Continue even on error
+          img.onerror = updateProgress;
         } else {
           const video = document.createElement('video');
           video.src = asset.src;
+          video.preload = 'auto';
           video.oncanplaythrough = updateProgress;
           video.onerror = updateProgress;
           video.load();
@@ -161,7 +175,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
             <img 
               src="/intro/letter.png" 
               alt="Invitation" 
-              className="w-full h-full object-cover md:object-contain shadow-[0_0_100px_rgba(0,0,0,0.9)]"
+              className="w-full h-full object-contain shadow-[0_0_100px_rgba(0,0,0,0.9)]"
             />
             
             {/* The Ancient Magical Button Overlay - Moved Higher */}
@@ -200,8 +214,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
             playsInline
             onTimeUpdate={handleTimeUpdate}
             onLoadedData={handleLoadedData}
-            onEnded={handleVideoEnd}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           >
             <source src="/intro/Owl_flying.mp4" type="video/mp4" />
           </video>
@@ -211,9 +224,9 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
       {/* Persistent Skip Button */}
       <button
         onClick={handleSkip}
-        className="fixed top-10 right-10 z-[1200] text-white/30 text-[10px] uppercase tracking-[0.5em] hover:text-white transition-colors py-2 px-4 border border-white/10 hover:border-white/40 bg-black/20 backdrop-blur-sm"
+        className="fixed top-10 right-10 z-[1200] text-white font-bold text-[11px] uppercase tracking-[0.4em] px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all duration-500 transform hover:scale-105"
       >
-        Skip Intro
+        <span className="magical-glow brightness-150">Skip Ceremony</span>
       </button>
 
       {/* Sound Hint Message - Only visible on the intro screen */}

@@ -20,6 +20,10 @@ interface Event {
   venue: string;
   timing: string;
   details: string;
+  image: string;
+  prizePool: string[];
+  teamSize: string;
+  rulebook?: string;
 }
 
 const events: Event[] = [
@@ -34,7 +38,11 @@ const events: Event[] = [
     facultyCoordinator: 'M Rama Krishnan',
     venue: 'Mechanical seminar hall',
     timing: '11.00 AM to 01.00 PM',
-    details: 'Showcase your research and technical insights to a panel of experts. This paper presentation event challenges you to push the boundaries of knowledge.',
+    details: 'Stranger Minds is a technical paper presentation event designed to evaluate participants’ knowledge, research ability, presentation skills, and innovation in emerging technologies. Participants can choose any one topic from the given list of 10 topics, prepare a presentation, and present it on the day of the symposium.',
+    image: '/images/events/paper.png',
+    prizePool: ['Shield(Team) + Certificate', 'Shield(Team) + Certificate', 'Participation certificates'],
+    teamSize: '1 - 3 members',
+    rulebook: '/docs/paper.pdf'
   },
   {
     id: 'spellcraft-coding',
@@ -46,7 +54,11 @@ const events: Event[] = [
     facultyCoordinator: 'M Jeya Sundari',
     venue: 'Business Analytics Lab',
     timing: '11.00 AM to 01.00 PM',
-    details: 'Cast your code spells to solve complex algorithmic puzzles. Speed, efficiency, and accuracy are your ingredients for success.',
+    details: 'This is a coding competition conducted through a dedicated website platform. The event tests participants\' programming knowledge, debugging skills, and problem-solving ability. Participants will complete all rounds on the website within the given time limits.',
+    image: '/images/events/coding.png',
+    prizePool: ['Cash Prize + Certificate', 'Cash Prize + Certificate', 'Participation Certificates'],
+    teamSize: '1 - 3 members',
+    rulebook: '/docs/coding.pdf'
   },
   {
     id: 'slytherin-webforge',
@@ -54,11 +66,15 @@ const events: Event[] = [
     description: 'Web Design',
     icon: Globe,
     category: 'technical',
-    studentCoordinators: ['Thanalakshmi G', 'Pradeep'],
+    studentCoordinators: ['Thanalakshmi G', 'Pradeep K'],
     facultyCoordinator: 'M Shabana Fathima',
     venue: 'Data Analytics Lab',
     timing: '11.00 AM to 01.00 PM',
-    details: 'Forge mesmerizing web experiences. Combine aesthetics with functionality in this high-stakes web design battle.',
+    details: 'This is a web designing competition that tests creativity, UI/UX skills, and logical thinking. Participants will create modern and responsive web interfaces using frontend technologies. AI tools like ChatGPT are allowed, but participants must understand and explain their work.',
+    image: '/images/events/web.png',
+    prizePool: ['Shield(Team) + Certificate', 'Shield(Team) + Certificate', 'Participation certificates'],
+    teamSize: 'Individual / Team of 2',
+    rulebook: '/docs/web.pdf'
   },
   {
     id: 'heist-protocol',
@@ -66,11 +82,15 @@ const events: Event[] = [
     description: 'CTF Challenge',
     icon: Shield,
     category: 'technical',
-    studentCoordinators: ['Kaviya N', 'Jason Ezra'],
-    facultyCoordinator: 'M PreethiRam',
-    venue: 'OOPA Lab',
+    studentCoordinators: ['Kaviya N', 'Kathirvel G'],
+    facultyCoordinator: 'M Preethi Ram',
+    venue: 'OOPS Lab',
     timing: '11.00 AM to 01.00 PM',
-    details: 'Enter the digital fortress. Hack, crack, and secure in this Capture The Flag challenge designed for true cyber warriors.',
+    details: 'This is a technical Capture The Flag competition designed to test participants\' cybersecurity skills, problem-solving abilities, reverse engineering expertise, and quick thinking under pressure. The event follows a Squid Game theme, where participants must survive multiple rounds by solving progressively difficult security challenges.',
+    image: '/images/events/ctf.png',
+    prizePool: ['Shield(Team) + Certificate', 'Shield(Team) + Certificate', 'Participation certificates'],
+    teamSize: '1 - 3 members',
+    rulebook: '/docs/ctf.pdf'
   },
   {
     id: 'cook-the-code',
@@ -78,11 +98,14 @@ const events: Event[] = [
     description: 'Hackathon',
     icon: Terminal,
     category: 'technical',
-    studentCoordinators: ['Gayathri Devi', 'Bala Vignesh'],
+    studentCoordinators: ['Gayathri Devi', 'Jason Ezra'],
     facultyCoordinator: 'B Yazhini',
     venue: 'IT Lab',
     timing: '11.00 AM to 01.00 PM',
-    details: 'Brew innovation in this intensive hackathon. Build a working prototype that solves real-world problems using your technical alchemy.',
+    details: 'Problem Statement will be given at the start of the event. All code and designs must be created during the hackathon. Use of pre-built projects is strictly not allowed. Open-source libraries and APIs can be used.',
+    image: '/images/events/hack.png',
+    prizePool: ['Cash Prize + Certificate', 'Cash Prize + Certificate', 'Participation Certificate(Hard copy)'],
+    teamSize: '1 - 3 members'
   },
 
   // NON-TECHNICAL EVENTS
@@ -96,7 +119,11 @@ const events: Event[] = [
     facultyCoordinator: 'Ereena Veerappa Dinesh',
     venue: 'Class Room',
     timing: '02.00 PM to 03.00 PM',
-    details: 'Enter the arena of ultimate gaming. Battle it out in the most popular esports titles and claim your throne.',
+    details: 'Battle Royale format conducted online (Round 1) and Offline Finals Clown Squad (Round 2). Gameplay will test coordination and strategy.',
+    image: '/images/events/esports.png',
+    prizePool: ['₹2500 Cash Prize + Certificate', '₹1500 Cash Prize + Certificate', 'Participation Certificate'],
+    teamSize: 'Team Event',
+    rulebook: '/docs/esports.pdf'
   },
   {
     id: 'throne-of-crowns',
@@ -104,11 +131,15 @@ const events: Event[] = [
     description: 'Geo-Politics Debate',
     icon: Users,
     category: 'non-technical',
-    studentCoordinators: ['Vaishnavi V', 'Rajakaleeswaran'],
+    studentCoordinators: ['Vaishnavi V', 'Rajakaleeswaran S'],
     facultyCoordinator: 'M PreethiRam',
     venue: 'Mechanical seminar hall',
     timing: '02.00 PM to 03.00 PM',
-    details: 'Navigate the complex waters of global politics. Represent nations and debate issues that shape our world.',
+    details: 'Throne of Crowns is an intellectual debate competition where participants engage in a battle of words, logic, and reasoning. The event tests critical thinking, presence of mind, confidence, structured argument building, and rebuttal skills. Topics will be revealed on the spot.',
+    image: '/images/events/debate.png',
+    prizePool: ['Shield(Team) + Certificate', 'Shield(Team) + Certificate', 'Participation certificates'],
+    teamSize: '2 - 3 members (6 teams per topic)',
+    rulebook: '/docs/debate.pdf'
   },
   {
     id: 'wizarding-premier-auction',
@@ -116,11 +147,14 @@ const events: Event[] = [
     description: 'IPL Auction',
     icon: Trophy,
     category: 'non-technical',
-    studentCoordinators: ['Mufrin Ashika O J', 'Raja Pandiyan'],
+    studentCoordinators: ['Mufrin Ashika O J', 'Raja Pandiyan P'],
     facultyCoordinator: 'M Jeya Sundari',
     venue: 'Data Analytics Lab',
     timing: '02.00 PM to 03.00 PM',
-    details: 'Bid, strategize, and build your dream team. Experience the thrill of a high-stakes IPL auction with a magical twist.',
+    details: 'Experience the thrill of a high-stakes IPL auction. Bid, strategize, and build your dream team within budget limits. Random shuffle method for team formation.',
+    image: '/images/events/auction.png',
+    prizePool: ['Shield(Team) + Certificate', 'Shield(Team) + Certificate', 'Participation certificates'],
+    teamSize: '2 - 4 members'
   },
   {
     id: 'wizards-quiz-bowl',
@@ -128,11 +162,15 @@ const events: Event[] = [
     description: 'Quiz Event',
     icon: Brain,
     category: 'non-technical',
-    studentCoordinators: ['Kaavyadharshini', 'Harinishanthan'],
+    studentCoordinators: ['Kaavyadharshini', 'Bala Vignesh S'],
     facultyCoordinator: 'M Rekha',
     venue: 'Business Analytics Lab',
     timing: '02.00 PM to 03.00 PM',
-    details: 'Test your knowledge across realms. A battle of wits where the fastest mind with the most wisdom triumphs.',
+    details: 'A fun non-technical quiz competition designed to test general knowledge, creativity, memory power, and quick thinking. Includes logical puzzles, picture guessing, and brain challenges.',
+    image: '/images/events/quiz.png',
+    prizePool: ['Shield(Team) + Certificate', 'Shield(Team) + Certificate', 'Participation certificates'],
+    teamSize: '2 members',
+    rulebook: '/docs/quiz.pdf'
   },
 ];
 
@@ -146,11 +184,11 @@ export default function Events({ onNavigate }: EventsProps) {
     <section id="events" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow">
+          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow brightness-125">
             The Spellbook
           </h2>
-          <p className="text-xl text-white max-w-3xl mx-auto font-light leading-relaxed tracking-wide opacity-80">
-            Choose your challenge and prove your mastery in these ancient competitions
+          <p className="text-xl text-white max-w-3xl mx-auto font-light leading-relaxed tracking-wide opacity-100 drop-shadow-md underline decoration-white/10 underline-offset-8">
+            Ancient scripts of innovation waiting to be mastered. Choose your destiny among the magical realms.
           </p>
         </div>
 
@@ -184,7 +222,7 @@ export default function Events({ onNavigate }: EventsProps) {
                     <Icon className="w-10 h-10 text-white/50 group-hover:text-white transition-all duration-700" />
                   </div>
 
-                  <h3 className="text-2xl font-light text-white mb-6 tracking-[0.1em] group-hover:text-white group-hover:magical-glow transition-all duration-500 uppercase">
+                  <h3 className="text-2xl font-light text-white mb-4 tracking-[0.2em] group-hover:magical-glow transition-all duration-700 uppercase drop-shadow-md">
                     {event.name}
                   </h3>
 
@@ -221,48 +259,86 @@ export default function Events({ onNavigate }: EventsProps) {
             </button>
 
             <div className="flex items-center space-x-6 mb-8">
-              {(() => {
-                const Icon = selectedEvent.icon;
-                return <Icon className="w-12 h-12 text-gray-300" />;
-              })()}
-              <h3 className="text-4xl font-light text-white tracking-tight">{selectedEvent.name}</h3>
+              <div className="w-16 h-16 bg-white/5 border border-white/10 flex items-center justify-center">
+                {(() => {
+                  const Icon = selectedEvent.icon;
+                  return <Icon className="w-8 h-8 text-gray-300" />;
+                })()}
+              </div>
+              <div>
+                <h3 className="text-3xl font-light text-white tracking-tight uppercase">{selectedEvent.name}</h3>
+                <p className="text-white/40 text-[10px] uppercase tracking-[0.3em] mt-1">{selectedEvent.description}</p>
+              </div>
             </div>
 
-            <p className="text-gray-400 mb-10 leading-relaxed text-lg font-light">{selectedEvent.details}</p>
+            <div className="mb-10 aspect-video w-full overflow-hidden border border-white/5 bg-[#050505] relative group/img">
+              <img 
+                src={selectedEvent.image} 
+                alt={selectedEvent.name}
+                className="w-full h-full object-cover opacity-60 group-hover/img:opacity-80 transition-opacity duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+            </div>
+
+            <p className="text-gray-400 mb-10 leading-relaxed text-sm font-light">{selectedEvent.details}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-gray-500 mt-1" />
+                  <MapPin className="w-4 h-4 text-gray-500 mt-1" />
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Venue</p>
-                    <p className="text-white font-light">{selectedEvent.venue}</p>
+                    <p className="text-white text-sm font-light">{selectedEvent.venue}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Clock className="w-5 h-5 text-gray-500 mt-1" />
+                  <Clock className="w-4 h-4 text-gray-500 mt-1" />
                   <div>
                     <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Timing</p>
-                    <p className="text-white font-light">{selectedEvent.timing}</p>
+                    <p className="text-white text-sm font-light">{selectedEvent.timing}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Trophy className="w-4 h-4 text-gray-500 mt-1" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Prize Pool</p>
+                    <div className="space-y-1">
+                      {selectedEvent.prizePool.map((prize, idx) => (
+                        <p key={idx} className="text-white text-sm font-light">
+                          <span className="text-white/30 mr-2">{idx + 1}.</span> {prize}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-start space-x-3">
-                  <Users className="w-5 h-5 text-gray-500 mt-1" />
+                  <Users className="w-4 h-4 text-gray-500 mt-1" />
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Student Coordinators</p>
-                    <p className="text-white font-light">{selectedEvent.studentCoordinators.join(', ')}</p>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Team Details</p>
+                    <p className="text-white text-sm font-light">{selectedEvent.teamSize}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <User className="w-5 h-5 text-gray-500 mt-1" />
+                  <User className="w-4 h-4 text-gray-500 mt-1" />
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Faculty Coordinator</p>
-                    <p className="text-white font-light">{selectedEvent.facultyCoordinator}</p>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Coordinators</p>
+                    <div className="space-y-1">
+                      <p className="text-white text-sm font-light"><span className="text-white/30 mr-2">Std:</span> {selectedEvent.studentCoordinators.join(', ')}</p>
+                      <p className="text-white text-sm font-light"><span className="text-white/30 mr-2">Fac:</span> {selectedEvent.facultyCoordinator}</p>
+                    </div>
                   </div>
                 </div>
+                {selectedEvent.rulebook && (
+                  <button
+                    onClick={() => window.open(selectedEvent.rulebook, '_blank')}
+                    className="w-full mt-4 py-3 bg-white/5 border border-white/10 text-white text-[10px] uppercase font-bold tracking-[0.2em] hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2"
+                  >
+                    <span>View Rulebook</span>
+                  </button>
+                )}
               </div>
             </div>
 

@@ -1,4 +1,6 @@
 import Hero from '../components/Hero';
+import About from '../components/About';
+import SortingHatSection from '../components/SortingHatSection';
 import Events from '../components/Events';
 import Leaderboard from '../components/Leaderboard';
 import Registration from '../components/Registration';
@@ -12,6 +14,8 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <>
       <Hero onNavigate={onNavigate} />
+      <About />
+      <SortingHatSection onNavigate={onNavigate} />
       <Events onNavigate={onNavigate} />
       <Leaderboard />
       <Registration />

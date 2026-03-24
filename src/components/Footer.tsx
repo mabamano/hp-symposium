@@ -1,4 +1,4 @@
-import { Sparkles, Github, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Sparkles, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -38,13 +38,19 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-bold text-white/40 mb-8 uppercase tracking-[0.4em] magical-glow">The Eternal Network</h3>
             <div className="flex space-x-6">
-              {[Instagram, Twitter, Linkedin, Github].map((Icon, i) => (
+              {[
+                { icon: Instagram, href: 'https://www.instagram.com/ritcsbs?igsh=MThsYWpzN2JndHNtZw==' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/posts/rit-csbs-212949257_with-the-advent-of-welcomingfreshers-to-activity-6999695434801655809-vrEU?utm_source=share&utm_medium=member_desktop' },
+                { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=100087866146448' },
+              ].map((social, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 transition-all duration-700 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group"
                 >
-                  <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <social.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
               ))}
             </div>

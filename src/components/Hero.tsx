@@ -10,12 +10,24 @@ export default function Hero({ onNavigate }: HeroProps) {
       {/* Video Background Section - Initial View */}
       <div className="h-screen relative flex items-center justify-center">
         <div className="absolute inset-0 z-0 bg-black">
+          {/* Mobile Video */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-contain md:object-cover"
+            className="w-full h-full object-cover object-center block md:hidden"
+          >
+            <source src="/home_video/title_mobile.mp4" type="video/mp4" />
+          </video>
+          
+          {/* PC / Desktop Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center hidden md:block"
           >
             <source src="/home_video/title.mp4" type="video/mp4" />
           </video>
@@ -34,19 +46,23 @@ export default function Hero({ onNavigate }: HeroProps) {
       {/* Content Section - Below Video */}
       <div className="relative z-20 py-32 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="animate-fadeIn">
-          <h1 className="text-7xl md:text-9xl font-bold mb-6 tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] magical-glow">
+          <h1 className="text-7xl md:text-9xl font-bold mb-6 tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] magical-glow">
             BIZNOVEXA
           </h1>
 
-          <div className="h-[2px] w-48 mx-auto mb-8 bg-gradient-to-r from-transparent via-white to-transparent" />
+          <div className="h-[2px] w-64 mx-auto mb-10 bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
 
-          <p className="text-2xl md:text-4xl text-white mb-6 font-serif italic tracking-[0.3em] uppercase magical-glow opacity-90">
+          <p className="text-2xl md:text-4xl text-white mb-8 font-serif italic tracking-[0.3em] uppercase magical-glow brightness-150">
             Mischief Managed
           </p>
 
-          <p className="text-lg md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-md">
+          <p className="text-lg md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed font-light drop-shadow-lg opacity-100">
             Enter the dark depths of innovation. A symposium where the ancient magic of technology 
             reveals the secrets of the Deathly Hallows.
+          </p>
+
+          <p className="text-xl md:text-2xl text-white mb-12 font-serif tracking-[0.2em] uppercase magical-glow">
+            10th April 2026
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -68,6 +84,21 @@ export default function Hero({ onNavigate }: HeroProps) {
               <div className="relative flex items-center space-x-3 text-gray-400 font-medium group-hover:text-white transition-colors duration-500 tracking-widest uppercase text-sm">
                 <Send className="w-5 h-5" />
                 <span>Join the Covenant</span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/images/events/poster.jpeg';
+                link.download = 'symposium_poster.jpeg';
+                link.click();
+              }}
+              className="group relative px-10 py-4 bg-transparent border border-gray-600 rounded-none overflow-hidden transform transition-all duration-500 hover:border-white"
+            >
+              <div className="relative flex items-center space-x-3 text-gray-400 group-hover:text-white transition-colors duration-500 tracking-widest uppercase text-sm">
+                <Send className="w-5 h-5 -rotate-45" />
+                <span>Download Poster</span>
               </div>
             </button>
           </div>
