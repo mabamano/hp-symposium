@@ -29,7 +29,7 @@ export default function MagicalCursor() {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="fixed pointer-events-none z-50 w-2 h-2 bg-amber-400 rounded-full animate-ping"
+          className="fixed pointer-events-none z-50 w-1.5 h-1.5 bg-white rounded-full blur-[1px] shadow-[0_0_10px_rgba(255,255,255,0.8),0_0_20px_rgba(255,255,255,0.4)]"
           style={{
             left: particle.x,
             top: particle.y,

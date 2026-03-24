@@ -1,157 +1,201 @@
-import { Code, FlaskConical, Brain, TrendingUp, MessageSquare, Gamepad2, Palette, Newspaper, Wand2 } from 'lucide-react';
+import { 
+  Code, Brain, Gamepad2, 
+  Terminal, Globe, Shield, 
+  Trophy, Users, BookOpen, MapPin, Clock, User
+} from 'lucide-react';
 import { useState } from 'react';
+
+interface EventsProps {
+  onNavigate: (section: string) => void;
+}
 
 interface Event {
   id: string;
   name: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
-  category: 'technical' | 'non-technical' | 'creative';
+  category: 'technical' | 'non-technical';
+  studentCoordinators: string[];
+  facultyCoordinator: string;
+  venue: string;
+  timing: string;
   details: string;
 }
 
 const events: Event[] = [
+  // TECHNICAL EVENTS
   {
-    id: 'code-wizardry',
-    name: 'Code Wizardry',
-    description: 'Cast your code spells in this ultimate coding challenge',
+    id: 'stranger-minds',
+    name: 'Stranger Minds',
+    description: 'Paper Presentation',
+    icon: BookOpen,
+    category: 'technical',
+    studentCoordinators: ['Ramya K', 'Nithish Kannan G'],
+    facultyCoordinator: 'M Rama Krishnan',
+    venue: 'Mechanical seminar hall',
+    timing: '11.00 AM to 01.00 PM',
+    details: 'Showcase your research and technical insights to a panel of experts. This paper presentation event challenges you to push the boundaries of knowledge.',
+  },
+  {
+    id: 'spellcraft-coding',
+    name: 'SpellCraft Coding',
+    description: 'Coding Event',
     icon: Code,
     category: 'technical',
-    details: 'A high-intensity coding competition where participants solve complex algorithms and data structure problems. Show your programming prowess!',
+    studentCoordinators: ['SivaPriya', 'Santhosh G'],
+    facultyCoordinator: 'M Jeya Sundari',
+    venue: 'Business Analytics Lab',
+    timing: '11.00 AM to 01.00 PM',
+    details: 'Cast your code spells to solve complex algorithmic puzzles. Speed, efficiency, and accuracy are your ingredients for success.',
   },
   {
-    id: 'potion-logic',
-    name: 'Potion Logic',
-    description: 'Debug the darkest code and solve mystical problems',
-    icon: FlaskConical,
+    id: 'slytherin-webforge',
+    name: 'Slytherin WebForge',
+    description: 'Web Design',
+    icon: Globe,
     category: 'technical',
-    details: 'Test your debugging skills and logical thinking. Find bugs, optimize code, and solve challenging computational problems.',
+    studentCoordinators: ['Thanalakshmi G', 'Pradeep'],
+    facultyCoordinator: 'M Shabana Fathima',
+    venue: 'Data Analytics Lab',
+    timing: '11.00 AM to 01.00 PM',
+    details: 'Forge mesmerizing web experiences. Combine aesthetics with functionality in this high-stakes web design battle.',
   },
   {
-    id: 'ai-divination',
-    name: 'AI Divination',
-    description: 'Predict the future with machine learning and AI',
-    icon: Brain,
+    id: 'heist-protocol',
+    name: 'Heist Protocol',
+    description: 'CTF Challenge',
+    icon: Shield,
     category: 'technical',
-    details: 'Build innovative AI/ML models to solve real-world problems. Showcase your knowledge in neural networks, deep learning, and data science.',
+    studentCoordinators: ['Kaviya N', 'Jason Ezra'],
+    facultyCoordinator: 'M PreethiRam',
+    venue: 'OOPA Lab',
+    timing: '11.00 AM to 01.00 PM',
+    details: 'Enter the digital fortress. Hack, crack, and secure in this Capture The Flag challenge designed for true cyber warriors.',
   },
   {
-    id: 'triwizard-pitch',
-    name: 'Triwizard Pitch',
-    description: 'Present your startup idea to the wizarding investors',
-    icon: TrendingUp,
-    category: 'non-technical',
-    details: 'Pitch your innovative business idea to a panel of judges. Demonstrate your entrepreneurial spirit and convince investors of your vision.',
+    id: 'cook-the-code',
+    name: 'Cook the Code',
+    description: 'Hackathon',
+    icon: Terminal,
+    category: 'technical',
+    studentCoordinators: ['Gayathri Devi', 'Bala Vignesh'],
+    facultyCoordinator: 'B Yazhini',
+    venue: 'IT Lab',
+    timing: '11.00 AM to 01.00 PM',
+    details: 'Brew innovation in this intensive hackathon. Build a working prototype that solves real-world problems using your technical alchemy.',
   },
+
+  // NON-TECHNICAL EVENTS
   {
-    id: 'house-debate',
-    name: 'House Debate Championship',
-    description: 'Battle with words in inter-house debates',
-    icon: MessageSquare,
-    category: 'non-technical',
-    details: 'Represent your house in heated debates on technology, business, and innovation. Showcase your argumentation and public speaking skills.',
-  },
-  {
-    id: 'spell-arena',
-    name: 'Spell Casting Arena',
-    description: 'Compete in the ultimate gaming tournament',
+    id: 'forbidden-arena',
+    name: 'Forbidden Arena',
+    description: 'Esports',
     icon: Gamepad2,
     category: 'non-technical',
-    details: 'Battle in popular esports titles. Show your gaming prowess and strategic thinking in this high-energy competition.',
+    studentCoordinators: ['Ashin Sree P', 'Manoj Kumar M'],
+    facultyCoordinator: 'Ereena Veerappa Dinesh',
+    venue: 'Class Room',
+    timing: '02.00 PM to 03.00 PM',
+    details: 'Enter the arena of ultimate gaming. Battle it out in the most popular esports titles and claim your throne.',
   },
   {
-    id: 'marauders-design',
-    name: "Marauder's Design Map",
-    description: 'Create magical user experiences and interfaces',
-    icon: Palette,
-    category: 'creative',
-    details: 'Design stunning UI/UX solutions for real-world problems. Showcase your creativity and understanding of user-centered design principles.',
+    id: 'throne-of-crowns',
+    name: 'Throne of Crowns',
+    description: 'Geo-Politics Debate',
+    icon: Users,
+    category: 'non-technical',
+    studentCoordinators: ['Vaishnavi V', 'Rajakaleeswaran'],
+    facultyCoordinator: 'M PreethiRam',
+    venue: 'Mechanical seminar hall',
+    timing: '02.00 PM to 03.00 PM',
+    details: 'Navigate the complex waters of global politics. Represent nations and debate issues that shape our world.',
   },
   {
-    id: 'daily-prophet',
-    name: 'Daily Prophet',
-    description: 'Craft compelling stories and marketing campaigns',
-    icon: Newspaper,
-    category: 'creative',
-    details: 'Create engaging content marketing campaigns. Write, design, and strategize to capture attention and drive engagement.',
+    id: 'wizarding-premier-auction',
+    name: 'Wizarding Premier Auction',
+    description: 'IPL Auction',
+    icon: Trophy,
+    category: 'non-technical',
+    studentCoordinators: ['Mufrin Ashika O J', 'Raja Pandiyan'],
+    facultyCoordinator: 'M Jeya Sundari',
+    venue: 'Data Analytics Lab',
+    timing: '02.00 PM to 03.00 PM',
+    details: 'Bid, strategize, and build your dream team. Experience the thrill of a high-stakes IPL auction with a magical twist.',
   },
   {
-    id: 'wand-artistry',
-    name: 'Wand Artistry',
-    description: 'Design mesmerizing posters and visual content',
-    icon: Wand2,
-    category: 'creative',
-    details: 'Showcase your graphic design skills. Create stunning posters, illustrations, and visual content that captivates and inspires.',
+    id: 'wizards-quiz-bowl',
+    name: 'Wizard’s Quiz Bowl',
+    description: 'Quiz Event',
+    icon: Brain,
+    category: 'non-technical',
+    studentCoordinators: ['Kaavyadharshini', 'Harinishanthan'],
+    facultyCoordinator: 'M Rekha',
+    venue: 'Business Analytics Lab',
+    timing: '02.00 PM to 03.00 PM',
+    details: 'Test your knowledge across realms. A battle of wits where the fastest mind with the most wisdom triumphs.',
   },
 ];
 
-export default function Events() {
+export default function Events({ onNavigate }: EventsProps) {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
-  const [filter, setFilter] = useState<'all' | 'technical' | 'non-technical' | 'creative'>('all');
+  const [filter, setFilter] = useState<'all' | 'technical' | 'non-technical'>('all');
 
   const filteredEvents = filter === 'all' ? events : events.filter((e) => e.category === filter);
 
   return (
-    <section id="events" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-950 via-blue-950 to-black">
+    <section id="events" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow">
             The Spellbook
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Choose your challenge and prove your mastery in these legendary competitions
+          <p className="text-xl text-white max-w-3xl mx-auto font-light leading-relaxed tracking-wide opacity-80">
+            Choose your challenge and prove your mastery in these ancient competitions
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {['all', 'technical', 'non-technical', 'creative'].map((category) => (
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {['all', 'technical', 'non-technical'].map((category) => (
             <button
               key={category}
               onClick={() => setFilter(category as typeof filter)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-10 py-2 rounded-none uppercase text-xs tracking-[0.4em] font-bold transition-all duration-700 border ${
                 filter === category
-                  ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-black shadow-lg shadow-amber-500/50'
-                  : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-amber-500/20'
+                  ? 'bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.4)] border-white'
+                  : 'bg-transparent text-white/60 hover:text-white border-white/5 hover:border-white/20'
               }`}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredEvents.map((event) => {
             const Icon = event.icon;
             return (
               <div
                 key={event.id}
                 onClick={() => setSelectedEvent(event)}
-                className="group relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm p-8 rounded-2xl border border-amber-500/20 cursor-pointer transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/30 hover:border-amber-500/50"
+                className="group relative bg-[#050505] p-10 rounded-none border border-white/5 cursor-pointer transform transition-all duration-700 hover:border-white/40 hover:bg-[#0a0a0a] hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/5 to-yellow-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-
                 <div className="relative z-10">
-                  <div className="w-16 h-16 mb-6 rounded-full bg-gradient-to-br from-amber-500/20 to-yellow-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-amber-400" />
+                  <div className="w-20 h-20 mb-10 bg-white/5 border border-white/5 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-500">
+                    <Icon className="w-10 h-10 text-white/50 group-hover:text-white transition-all duration-700" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-light text-white mb-6 tracking-[0.1em] group-hover:text-white group-hover:magical-glow transition-all duration-500 uppercase">
                     {event.name}
                   </h3>
 
-                  <p className="text-gray-400 mb-4 leading-relaxed">{event.description}</p>
+                  <p className="text-white/60 mb-8 leading-relaxed font-light text-sm group-hover:text-white/80 transition-colors">{event.description}</p>
 
-                  <div className="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium">
+                  <div className="inline-block px-6 py-2 bg-white/5 border border-white/10 text-white text-[10px] uppercase font-bold tracking-[0.3em] group-hover:border-white/30">
                     {event.category.replace('-', ' ')}
                   </div>
-
-                  <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-amber-400 text-sm font-medium flex items-center">
-                    <span>Learn more</span>
-                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
                 </div>
+
+                <div className="absolute inset-0 border-r border-b border-transparent group-hover:border-white/10 transition-all duration-700" />
               </div>
             );
           })}
@@ -160,39 +204,81 @@ export default function Events() {
 
       {selectedEvent && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="relative max-w-2xl w-full bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-amber-500/30 shadow-2xl"
+            className="relative max-w-2xl w-full bg-[#0a0a0a] p-12 rounded-none border border-white/10 shadow-3xl animate-fadeIn"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedEvent(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-amber-400 transition-colors"
+              className="absolute top-6 right-6 text-gray-500 hover:text-white transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            <div className="flex items-center space-x-4 mb-6">
+            <div className="flex items-center space-x-6 mb-8">
               {(() => {
                 const Icon = selectedEvent.icon;
-                return <Icon className="w-12 h-12 text-amber-400" />;
+                return <Icon className="w-12 h-12 text-gray-300" />;
               })()}
-              <h3 className="text-3xl font-bold text-amber-400">{selectedEvent.name}</h3>
+              <h3 className="text-4xl font-light text-white tracking-tight">{selectedEvent.name}</h3>
             </div>
 
-            <p className="text-gray-300 mb-6 leading-relaxed text-lg">{selectedEvent.details}</p>
+            <p className="text-gray-400 mb-10 leading-relaxed text-lg font-light">{selectedEvent.details}</p>
 
-            <div className="flex items-center justify-between">
-              <span className="px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-medium">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-5 h-5 text-gray-500 mt-1" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Venue</p>
+                    <p className="text-white font-light">{selectedEvent.venue}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Clock className="w-5 h-5 text-gray-500 mt-1" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Timing</p>
+                    <p className="text-white font-light">{selectedEvent.timing}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <Users className="w-5 h-5 text-gray-500 mt-1" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Student Coordinators</p>
+                    <p className="text-white font-light">{selectedEvent.studentCoordinators.join(', ')}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <User className="w-5 h-5 text-gray-500 mt-1" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-gray-600 font-bold mb-1">Faculty Coordinator</p>
+                    <p className="text-white font-light">{selectedEvent.facultyCoordinator}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between border-t border-white/5 pt-8">
+              <span className="text-gray-500 text-xs uppercase tracking-[0.3em] font-bold">
                 {selectedEvent.category.replace('-', ' ')}
               </span>
 
-              <button className="px-6 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300">
-                Register Now
+              <button
+                onClick={() => {
+                  setSelectedEvent(null);
+                  onNavigate('register');
+                }}
+                className="px-8 py-3 bg-white text-black text-xs uppercase font-bold tracking-widest hover:bg-gray-200 transition-all duration-300"
+              >
+                Accept Challenge
               </button>
             </div>
           </div>

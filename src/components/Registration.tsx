@@ -57,15 +57,15 @@ export default function Registration() {
   };
 
   const eventOptions = [
-    'Code Wizardry',
-    'Potion Logic',
-    'AI Divination',
-    'Triwizard Pitch',
-    'House Debate Championship',
-    'Spell Casting Arena',
-    "Marauder's Design Map",
-    'Daily Prophet',
-    'Wand Artistry',
+    'Stranger Minds',
+    'SpellCraft Coding',
+    'Slytherin WebForge',
+    'Heist Protocol',
+    'Cook the Code',
+    'Forbidden Arena',
+    'Throne of Crowns',
+    'Wizarding Premier Auction',
+    'Wizard’s Quiz Bowl',
   ];
 
   const toggleEvent = (event: string) => {
@@ -78,80 +78,84 @@ export default function Registration() {
   };
 
   return (
-    <section id="register" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-950 via-purple-950 to-black min-h-screen flex items-center">
+    <section id="register" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-4xl mx-auto w-full">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+        <div className="text-center mb-16">
+          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow">
             Owl Post
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Send your acceptance letter and join the magical symposium
+          <p className="text-xl text-white max-w-3xl mx-auto font-light leading-relaxed tracking-wide opacity-80">
+            Bind your soul to the magical symposium. Your journey into the dark arts of innovation begins here.
           </p>
         </div>
 
         {step === 'form' && (
-          <form onSubmit={handleSubmit} className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm p-8 rounded-2xl border border-amber-500/20 shadow-2xl">
-            <div className="space-y-6">
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">Full Name</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-amber-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-                  placeholder="Enter your name"
-                />
+          <form onSubmit={handleSubmit} className="bg-[#050505] p-12 border border-white/5 shadow-3xl hover:border-white/10 transition-all duration-700">
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <label className="block text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-4 opacity-80 magical-glow">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all font-light tracking-widest text-sm"
+                    placeholder="WIZARD NAME"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-4 opacity-80 magical-glow">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all font-light tracking-widest text-sm"
+                    placeholder="OWL.POST@DOMAIN.COM"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <label className="block text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-4 opacity-80 magical-glow">Phone Number</label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all font-light tracking-widest text-sm"
+                    placeholder="+91 XXX XXX XXXX"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-4 opacity-80 magical-glow">College/University</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.college}
+                    onChange={(e) => setFormData({ ...formData, college: e.target.value })}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/10 transition-all font-light tracking-widest text-sm"
+                    placeholder="INSTITUTION"
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="block text-gray-300 font-medium mb-2">Email Address</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-amber-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">Phone Number</label>
-                <input
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-amber-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-                  placeholder="+91 XXXXX XXXXX"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">College/University</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.college}
-                  onChange={(e) => setFormData({ ...formData, college: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-amber-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-                  placeholder="Your institution name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-3">Select Events (Optional)</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label className="block text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-6 opacity-80 magical-glow">Select Challenges</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {eventOptions.map((event) => (
                     <button
                       key={event}
                       type="button"
                       onClick={() => toggleEvent(event)}
-                      className={`px-4 py-3 rounded-lg text-left transition-all duration-300 ${
+                      className={`px-4 py-3 text-[10px] tracking-widest uppercase font-bold text-left transition-all duration-500 border ${
                         formData.events.includes(event)
-                          ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-medium shadow-lg shadow-amber-500/30'
-                          : 'bg-gray-800/50 border border-amber-500/30 text-gray-300 hover:border-amber-500/50'
+                          ? 'bg-white text-black border-white'
+                          : 'bg-white/5 border-white/10 text-gray-500 hover:border-white/20'
                       }`}
                     >
                       {event}
@@ -163,46 +167,43 @@ export default function Registration() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-4 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg text-black font-bold flex items-center justify-center space-x-2 hover:shadow-2xl hover:shadow-amber-500/50 transform hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-white text-black text-xs uppercase font-bold tracking-[0.3em] flex items-center justify-center space-x-3 hover:bg-gray-200 transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed group"
               >
-                <Send className="w-5 h-5" />
-                <span>Send via Owl Post</span>
+                <Send className="w-4 h-4" />
+                <span>Bind the Covenant</span>
               </button>
             </div>
           </form>
         )}
 
         {step === 'sorting' && (
-          <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm p-12 rounded-2xl border border-amber-500/20 shadow-2xl text-center">
-            <div className="mb-8">
-              <div className="inline-block w-32 h-32 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full animate-pulse opacity-30" />
-                <div className="absolute inset-4 bg-gray-900 rounded-full flex items-center justify-center">
-                  <Loader2 className="w-16 h-16 text-amber-400 animate-spin" />
-                </div>
+          <div className="bg-[#050505] p-24 border border-white/10 text-center animate-fadeIn shadow-[0_0_50px_rgba(255,255,255,0.02)]">
+            <div className="mb-14">
+              <div className="inline-block relative">
+                <Loader2 className="w-24 h-24 text-white animate-spin opacity-40 font-thin" />
+                <div className="absolute inset-0 bg-white/10 blur-3xl animate-pulse" />
               </div>
             </div>
-            <h3 className="text-3xl font-bold text-amber-400 mb-4">The Sorting Hat is Deciding...</h3>
-            <p className="text-gray-300 text-lg">
-              "Hmm, difficult... very difficult. Plenty of courage, I see. Not a bad mind, either..."
+            <h3 className="text-4xl font-light text-white mb-8 uppercase tracking-[0.3em] magical-glow">The Sorting Has Begun...</h3>
+            <p className="text-white/60 text-xl font-light italic max-w-lg mx-auto leading-relaxed drop-shadow-md">
+              "The Elder Wand, the Resurrection Stone, the Cloak of Invisibility... 
+              where do you belong in this triangle of power?"
             </p>
           </div>
         )}
 
         {step === 'success' && assignedHouse && (
-          <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm p-12 rounded-2xl border border-amber-500/20 shadow-2xl text-center animate-fadeIn">
-            <div className="mb-8">
-              <div className="inline-block p-6 rounded-full bg-green-500/10 border-2 border-green-500/30">
-                <CheckCircle className="w-16 h-16 text-green-400" />
-              </div>
+          <div className="bg-[#050505] p-24 border border-white/10 text-center animate-fadeIn shadow-[0_0_60px_rgba(255,255,255,0.03)]">
+            <div className="mb-14">
+              <CheckCircle className="w-24 h-24 text-white mx-auto opacity-60 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
             </div>
-            <h3 className="text-4xl font-bold text-amber-400 mb-4">{assignedHouse.name}!</h3>
-            <p className="text-2xl text-gray-300 mb-6 italic">"{assignedHouse.description}"</p>
-            <div className="p-6 bg-gray-800/50 rounded-lg border border-amber-500/20 mb-6">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                You have been accepted to <span className="font-bold text-amber-400">BIZNOVEXA</span>!
+            <h3 className="text-6xl font-light text-white mb-8 uppercase tracking-[0.2em] magical-glow">{assignedHouse.name}</h3>
+            <p className="text-3xl text-white/70 mb-12 italic font-light font-serif">"{assignedHouse.description}"</p>
+            <div className="p-10 bg-white/5 border border-white/10 mb-12">
+              <p className="text-xl text-white/80 font-light leading-relaxed tracking-wide">
+                You have been marked for <span className="text-white font-bold tracking-[0.2em] uppercase magical-glow">BIZNOVEXA</span>.
                 <br />
-                Your magical journey begins now. Check your email for further details.
+                The shadows await your arrival. Watch the horizon for your final instructions.
               </p>
             </div>
             <button
@@ -211,9 +212,9 @@ export default function Registration() {
                 setFormData({ name: '', email: '', phone: '', college: '', events: [] });
                 setAssignedHouse(null);
               }}
-              className="px-8 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg text-black font-bold hover:shadow-lg hover:shadow-amber-500/50 transform hover:scale-105 transition-all duration-300"
+              className="px-16 py-4 border border-white/30 text-white text-xs uppercase tracking-[0.4em] font-bold hover:bg-white hover:text-black transition-all duration-700 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
-              Return to Form
+              Return to Shadows
             </button>
           </div>
         )}
