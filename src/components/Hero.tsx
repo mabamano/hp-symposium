@@ -36,7 +36,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         </div>
         
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-40 z-10">
+        <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce opacity-40 z-10">
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 9l-7 7-7-7" />
           </svg>

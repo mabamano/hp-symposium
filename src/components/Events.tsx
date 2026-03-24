@@ -242,11 +242,11 @@ export default function Events({ onNavigate }: EventsProps) {
 
       {selectedEvent && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black/95 backdrop-blur-md overflow-y-auto py-10 md:py-20"
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="relative max-w-2xl w-full bg-[#0a0a0a] p-12 rounded-none border border-white/10 shadow-3xl animate-fadeIn"
+            className="relative max-w-2xl w-full bg-[#0a0a0a] p-8 md:p-12 rounded-none border border-white/10 shadow-3xl animate-fadeIn mb-10"
             onClick={(e) => e.stopPropagation()}
           >
             <button
