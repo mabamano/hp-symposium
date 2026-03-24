@@ -20,7 +20,9 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
       const assets = [
         // Intro Assets
         { type: 'image', src: '/intro/letter.png' },
+        { type: 'image', src: '/intro/letter_mobile.png' },
         { type: 'video', src: '/intro/Owl_flying.mp4' },
+        { type: 'video', src: '/intro/Owl_flying_moblie.mp4' },
         // Platform Core Assets
         { type: 'image', src: '/images/events/Ramco-logo.png' },
         { type: 'image', src: '/images/events/hogwarts-bg.webp' },
@@ -172,11 +174,14 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
         <div ref={letterRef} className="relative z-10 w-full h-full flex flex-col items-center justify-center animate-fadeIn">
           <div className="relative w-full h-full flex items-center justify-center">
             {/* The Provided Letter Image - Full Screen Fit */}
-            <img 
-              src="/intro/letter.png" 
-              alt="Invitation" 
-              className="w-full h-full object-contain shadow-[0_0_100px_rgba(0,0,0,0.9)]"
-            />
+            <picture className="w-full h-full">
+              <source media="(max-width: 768px)" srcSet="/intro/letter_mobile.png" />
+              <img 
+                src="/intro/letter.png" 
+                alt="Invitation" 
+                className="w-full h-full object-contain shadow-[0_0_100px_rgba(0,0,0,0.9)]"
+              />
+            </picture>
             
             {/* The Ancient Magical Button Overlay - Moved Higher */}
             <div className="absolute bottom-[20%] md:bottom-[25%] left-1/2 -translate-x-1/2">
@@ -216,7 +221,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
             onLoadedData={handleLoadedData}
             className="w-full h-full object-cover object-center"
           >
-            <source src="/intro/Owl_flying.mp4" type="video/mp4" />
+            <source src={window.innerWidth <= 768 ? "/intro/Owl_flying_moblie.mp4" : "/intro/Owl_flying.mp4"} type="video/mp4" />
           </video>
         </div>
       )}
