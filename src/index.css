@@ -16,6 +16,21 @@
     @apply font-bold brightness-125;
   }
 
+  .magical-glow-mobile {
+    @apply magical-glow;
+  }
+
+  @media (min-width: 768px) {
+    .magical-glow-mobile {
+      text-shadow: none;
+      filter: none;
+      font-weight: inherit;
+    }
+    .group:hover .magical-glow-mobile {
+      @apply magical-glow;
+    }
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;

@@ -57,7 +57,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
                   className="group flex items-center space-x-2 px-6 py-2 text-white hover:text-white transition-all duration-500 relative"
                 >
                   <Icon className="w-4 h-4 relative z-10 group-hover:scale-110 transition-transform drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]" />
-                  <span className="relative z-10 text-[10px] font-bold uppercase tracking-widest drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)] group-hover:magical-glow">{item.name}</span>
+                  <span className="relative z-10 text-[10px] uppercase tracking-widest drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)] magical-glow-mobile">{item.name}</span>
                   <div className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-white group-hover:w-full group-hover:left-0 transition-all duration-500 shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
                 </button>
               );

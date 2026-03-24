@@ -57,10 +57,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/5 text-center">
+        <div className="pt-10 border-t border-white/5 text-center space-y-6">
           <p className="text-white/20 text-[10px] uppercase tracking-[0.5em] font-bold magical-glow">
             &copy; 2026 BIZNOVEXA. MISCHIEF MANAGED.
           </p>
+          <div className="flex flex-col items-center space-y-2">
+            <p className="text-white/40 text-[10px] uppercase tracking-[0.3em]">
+              Site Developed by 
+              <a 
+                href="https://www.linkedin.com/in/manojkumar-m-maba/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="ml-2 text-white/60 hover:text-white transition-colors magical-glow border-b border-white/10"
+              >
+                Manojkumar M
+              </a>
+            </p>
+            <p className="text-white/20 text-[9px] uppercase tracking-[0.2em] italic">
+              DM me on LinkedIn for the GitHub repo of this project
+            </p>
+          </div>
         </div>
       </div>
     </footer>

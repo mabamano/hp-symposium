@@ -222,7 +222,7 @@ export default function Events({ onNavigate }: EventsProps) {
                     <Icon className="w-10 h-10 text-white/50 group-hover:text-white transition-all duration-700" />
                   </div>
 
-                  <h3 className="text-xl md:text-2xl font-light text-white mb-4 tracking-[0.2em] group-hover:magical-glow transition-all duration-700 uppercase drop-shadow-md">
+                  <h3 className="text-xl md:text-2xl font-light text-white mb-4 tracking-[0.2em] transition-all duration-700 uppercase drop-shadow-md magical-glow-mobile">
                     {event.name}
                   </h3>
 

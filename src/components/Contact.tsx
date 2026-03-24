@@ -33,7 +33,7 @@ export default function Contact() {
                 <div className="w-16 h-16 bg-white/5 flex items-center justify-center mb-10 border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500">
                   <item.icon className="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="text-xl font-light text-white mb-6 uppercase tracking-[0.2em] group-hover:magical-glow transition-all duration-500 underline decoration-white/5">
+                <h3 className="text-xl font-light text-white mb-6 uppercase tracking-[0.2em] transition-all duration-500 underline decoration-white/5 magical-glow-mobile">
                   {item.title}
                 </h3>
                 <div className="space-y-3">

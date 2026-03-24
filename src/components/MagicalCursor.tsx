@@ -6,22 +6,36 @@ export default function MagicalCursor() {
   useEffect(() => {
     let particleId = 0;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMove = (x: number, y: number) => {
       const newParticle = {
         id: particleId++,
-        x: e.clientX,
-        y: e.clientY,
+        x,
+        y,
       };
 
-      setParticles((prev) => [...prev, newParticle]);
+      setParticles((prev) => [...prev, newParticle].slice(-20)); // Limit active particles
 
       setTimeout(() => {
         setParticles((prev) => prev.filter((p) => p.id !== newParticle.id));
-      }, 1000);
+      }, 800);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX, e.clientY);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) {
+        handleMove(e.touches[0].clientX, e.touches[0].clientY);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('touchstart', handleTouchMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchstart', handleTouchMove);
+    };
   }, []);
 
   return (
