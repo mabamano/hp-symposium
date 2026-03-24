@@ -183,8 +183,8 @@ export default function Events({ onNavigate }: EventsProps) {
   return (
     <section id="events" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow brightness-125">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-4xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow brightness-125">
             The Spellbook
           </h2>
           <p className="text-xl text-white max-w-3xl mx-auto font-light leading-relaxed tracking-wide opacity-100 drop-shadow-md underline decoration-white/10 underline-offset-8">
@@ -222,7 +222,7 @@ export default function Events({ onNavigate }: EventsProps) {
                     <Icon className="w-10 h-10 text-white/50 group-hover:text-white transition-all duration-700" />
                   </div>
 
-                  <h3 className="text-2xl font-light text-white mb-4 tracking-[0.2em] group-hover:magical-glow transition-all duration-700 uppercase drop-shadow-md">
+                  <h3 className="text-xl md:text-2xl font-light text-white mb-4 tracking-[0.2em] group-hover:magical-glow transition-all duration-700 uppercase drop-shadow-md">
                     {event.name}
                   </h3>
 

@@ -5,7 +5,7 @@ export default function Contact() {
     <section id="contact" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-24">
-          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow brightness-125">
+          <h2 className="text-4xl md:text-7xl font-bold mb-8 text-white tracking-widest uppercase magical-glow brightness-125">
             Ministry
           </h2>
           <p className="text-xl text-white max-w-3xl mx-auto font-light leading-relaxed tracking-wide opacity-100 drop-shadow-md underline decoration-white/10 underline-offset-8">

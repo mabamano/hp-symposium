@@ -16,18 +16,18 @@ export default function SortingHatSection({ onNavigate }: SortingHatSectionProps
            <Wand2 className="w-12 h-12 text-white/50" />
         </div>
         
-        <h2 className="text-5xl md:text-7xl font-bold mb-10 text-white tracking-widest uppercase magical-glow">
+        <h2 className="text-3xl md:text-7xl font-bold mb-10 text-white tracking-widest uppercase magical-glow">
           The Sorting Ceremony
         </h2>
         
-        <p className="text-xl text-white max-w-2xl mx-auto font-light leading-relaxed tracking-wide opacity-80 mb-16">
+        <p className="text-xl text-white max-w-2xl mx-auto font-light leading-relaxed tracking-wide opacity-80 mb-16 px-4">
           "There's nothing hidden in your head the Sorting Hat can't see..." 
           Discover your destined house and join the ranks of the elite wizards in the BIZNOVEXA symposium.
         </p>
         
         <button
           onClick={() => onNavigate('sorting-hat')}
-          className="group relative px-16 py-6 bg-white text-black font-bold uppercase tracking-[0.4em] text-sm hover:bg-gray-200 transition-all duration-500 shadow-[0_0_50px_rgba(255,255,255,0.3)] animate-glow"
+          className="group relative px-10 md:px-16 py-6 bg-white text-black font-bold uppercase tracking-[0.4em] text-sm hover:bg-gray-200 transition-all duration-500 shadow-[0_0_50px_rgba(255,255,255,0.3)] animate-glow"
         >
           Begin the Initiation
         </button>

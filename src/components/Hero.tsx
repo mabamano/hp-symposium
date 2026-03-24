@@ -46,7 +46,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       {/* Content Section - Below Video */}
       <div className="relative z-20 py-32 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="animate-fadeIn">
-          <h1 className="text-7xl md:text-9xl font-bold mb-6 tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] magical-glow">
+          <h1 className="text-6xl md:text-9xl font-bold mb-6 tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.6)] magical-glow">
             BIZNOVEXA
           </h1>
 

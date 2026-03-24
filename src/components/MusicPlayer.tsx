@@ -10,6 +10,10 @@ export default function MusicPlayer() {
     const playAudio = async () => {
       try {
         if (audioRef.current) {
+          // Increase volume for mobile users specifically
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+          audioRef.current.volume = isMobile ? 1.0 : 0.6;
+          
           await audioRef.current.play();
           setPlaying(true);
         }

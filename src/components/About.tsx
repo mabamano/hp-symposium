@@ -8,7 +8,7 @@ export default function About() {
           <div className="inline-block p-6 bg-white/5 border border-white/5 mb-10 group hover:border-white/20 transition-all duration-700">
             <Info className="w-12 h-12 text-white/60 group-hover:text-white transition-colors" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-10 text-white tracking-[0.2em] uppercase magical-glow brightness-125">
+          <h2 className="text-4xl md:text-6xl font-bold mb-10 text-white tracking-[0.2em] uppercase magical-glow brightness-125">
             The Chronicle
           </h2>
           
