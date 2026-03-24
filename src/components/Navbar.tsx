@@ -19,12 +19,12 @@ export default function Navbar({ onNavigate }: NavbarProps) {
   }, []);
 
   const navItems = [
-    { name: 'The Great Hall', icon: Sparkles, id: 'home' },
-    { name: 'The Spellbook', icon: Scroll, id: 'events' },
-    { name: 'Sorting Hat', icon: Wand2, id: 'sorting-hat' },
-    { name: 'House Cup', icon: Users, id: 'leaderboard' },
-    { name: 'Owl Post', icon: Send, id: 'register' },
-    { name: 'Ministry', icon: Mail, id: 'contact' },
+    { name: 'The Great Hall', mobileName: 'Home', icon: Sparkles, id: 'home' },
+    { name: 'The Spellbook', mobileName: 'Events', icon: Scroll, id: 'events' },
+    { name: 'Sorting Hat', mobileName: 'Sorting Hat', icon: Wand2, id: 'sorting-hat' },
+    { name: 'House Cup', mobileName: 'Leaderboard', icon: Users, id: 'leaderboard' },
+    { name: 'Owl Post', mobileName: 'Registration', icon: Send, id: 'register' },
+    { name: 'Ministry', mobileName: 'Contact', icon: Mail, id: 'contact' },
   ];
 
   return (
@@ -93,7 +93,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
                 className="w-full flex items-center space-x-4 px-4 py-3 text-white hover:bg-white/10 rounded-lg transition-all"
               >
                 <Icon className="w-5 h-5 text-white/50" />
-                <span className="text-sm font-bold uppercase tracking-widest">{item.name}</span>
+                <span className="text-sm font-bold uppercase tracking-widest">{item.mobileName}</span>
               </button>
             );
           })}
