@@ -34,7 +34,7 @@ function MainApp() {
       <MusicPlayer />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isIntroComplete={!showIntro} />} />
       </Routes>
     </div>
   );

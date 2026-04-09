@@ -1,4 +1,40 @@
-export default function Hero() {
+import { useState, useRef, useEffect } from 'react';
+
+export default function Hero({ startVideo = true }: { startVideo?: boolean }) {
+  const [videoState, setVideoState] = useState<'title' | 'clg'>('title');
+  const mobileRef = useRef<HTMLVideoElement>(null);
+  const desktopRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (startVideo) {
+      if (mobileRef.current && videoState === 'title') {
+        mobileRef.current.play().catch(() => {});
+      }
+      if (desktopRef.current && videoState === 'title') {
+        desktopRef.current.play().catch(() => {});
+      }
+    }
+  }, [startVideo, videoState]);
+
+  const handleVideoEnd = () => {
+    if (videoState === 'title') {
+      setVideoState('clg');
+      
+      // Manually trigger the next video for seamless playback in both views
+      if (mobileRef.current) {
+        mobileRef.current.src = "/home_video/clg.mp4";
+        mobileRef.current.loop = true;
+        mobileRef.current.play().catch(e => console.log("Playback error:", e));
+      }
+      
+      if (desktopRef.current) {
+        desktopRef.current.src = "/home_video/clg.mp4";
+        desktopRef.current.loop = true;
+        desktopRef.current.play().catch(e => console.log("Playback error:", e));
+      }
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen bg-black overflow-hidden">
       {/* Video Background Section - Initial View */}
@@ -6,22 +42,22 @@ export default function Hero() {
         <div className="absolute inset-0 z-0 bg-black">
           {/* Mobile Video */}
           <video
-            autoPlay
-            loop
+            ref={mobileRef}
             muted
             playsInline
-            className="w-full h-full object-cover object-center block md:hidden"
+            onEnded={handleVideoEnd}
+            className={`w-full h-full object-center block md:hidden ${videoState === 'clg' ? 'object-contain' : 'object-cover'}`}
           >
             <source src="/home_video/title_mobile.mp4" type="video/mp4" />
           </video>
           
           {/* PC / Desktop Video */}
           <video
-            autoPlay
-            loop
+            ref={desktopRef}
             muted
             playsInline
-            className="w-full h-full object-cover object-center hidden md:block"
+            onEnded={handleVideoEnd}
+            className={`w-full h-full object-center hidden md:block ${videoState === 'clg' ? 'object-contain' : 'object-cover'}`}
           >
             <source src="/home_video/title.mp4" type="video/mp4" />
           </video>

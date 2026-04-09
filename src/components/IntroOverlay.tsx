@@ -183,8 +183,8 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
               />
             </picture>
             
-            {/* The Ancient Magical Button Overlay - Moved Higher */}
-            <div className="absolute bottom-[20%] md:bottom-[25%] left-1/2 -translate-x-1/2">
+            {/* The Ancient Magical Button Overlay - Moved Even Lower */}
+            <div className="absolute bottom-[5%] md:bottom-[10%] left-1/2 -translate-x-1/2">
               <button
                 onClick={handleOpenLetter}
                 className="relative group px-12 py-4 transition-all duration-700 active:scale-95"
