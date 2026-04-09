@@ -1,25 +1,15 @@
 import Hero from '../components/Hero';
-import About from '../components/About';
-import SortingHatSection from '../components/SortingHatSection';
-import Events from '../components/Events';
-import Leaderboard from '../components/Leaderboard';
-import Registration from '../components/Registration';
-import Contact from '../components/Contact';
 
-interface HomeProps {
-  onNavigate: (section: string) => void;
-}
-
-export default function Home({ onNavigate }: HomeProps) {
+export default function Home() {
   return (
-    <>
-      <Hero onNavigate={onNavigate} />
-      <About />
-      <SortingHatSection onNavigate={onNavigate} />
-      <Events onNavigate={onNavigate} />
-      <Leaderboard />
-      <Registration />
-      <Contact />
-    </>
+    <div className="relative">
+      {/* Subtle Background Image */}
+      <div 
+        className="fixed inset-0 z-[-1] pointer-events-none bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ backgroundImage: "url('/images/bg/bg.jpeg')" }}
+      />
+      
+      <Hero />
+    </div>
   );
 }

@@ -1,10 +1,4 @@
-import { Wand2, Send } from 'lucide-react';
-
-interface HeroProps {
-  onNavigate: (section: string) => void;
-}
-
-export default function Hero({ onNavigate }: HeroProps) {
+export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen bg-black overflow-hidden">
       {/* Video Background Section - Initial View */}
@@ -64,44 +58,6 @@ export default function Hero({ onNavigate }: HeroProps) {
           <p className="text-xl md:text-2xl text-white mb-12 font-serif tracking-[0.2em] uppercase magical-glow">
             10th April 2026
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button
-              onClick={() => onNavigate('events')}
-              className="group relative px-10 py-4 bg-white/5 border border-white/10 rounded-none overflow-hidden transform transition-all duration-500 hover:bg-white/10 hover:border-white/30"
-            >
-              <div className="relative flex items-center space-x-3 text-white font-medium tracking-widest uppercase text-sm">
-                <Wand2 className="w-5 h-5 text-gray-400" />
-                <span>Unveil the Secrets</span>
-              </div>
-              <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-400 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-            </button>
-
-            <button
-              onClick={() => onNavigate('register')}
-              className="group relative px-10 py-4 bg-transparent border border-gray-600 rounded-none overflow-hidden transform transition-all duration-500 hover:border-gray-200"
-            >
-              <div className="relative flex items-center space-x-3 text-gray-400 font-medium group-hover:text-white transition-colors duration-500 tracking-widest uppercase text-sm">
-                <Send className="w-5 h-5" />
-                <span>Join the Covenant</span>
-              </div>
-            </button>
-
-            <button
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/images/events/poster.jpeg';
-                link.download = 'symposium_poster.jpeg';
-                link.click();
-              }}
-              className="group relative px-10 py-4 bg-transparent border border-gray-600 rounded-none overflow-hidden transform transition-all duration-500 hover:border-white"
-            >
-              <div className="relative flex items-center space-x-3 text-gray-400 group-hover:text-white transition-colors duration-500 tracking-widest uppercase text-sm">
-                <Send className="w-5 h-5 -rotate-45" />
-                <span>Download Poster</span>
-              </div>
-            </button>
-          </div>
         </div>
       </div>
     </section>
